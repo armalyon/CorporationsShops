@@ -1,0 +1,15 @@
+/workspace.xml
+.idea
+*.iws
+*.iml
+*.ipr
+
+*.class
+
+.idea
+*.iml
+
+.classpath
+.project
+.settings/
+target/
