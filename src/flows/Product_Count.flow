@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Counter_Incrementation</name>
+        <label>Counter Incrementation</label>
+        <locationX>432</locationX>
+        <locationY>396</locationY>
+        <assignmentItems>
+            <assignToReference>Record_Counter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Counter_Loop</targetReference>
+        </connector>
+    </assignments>
+    <interviewLabel>Product Count {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Product Count</label>
+    <loops>
+        <name>Counter_Loop</name>
+        <label>Counter Loop</label>
+        <locationX>188</locationX>
+        <locationY>397</locationY>
+        <collectionReference>Get_Products</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Counter_Incrementation</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Counter_Screen</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Products</name>
+        <label>Get Products</label>
+        <locationX>184</locationX>
+        <locationY>229</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Counter_Loop</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Product2</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Counter_Screen</name>
+        <label>Counter Screen</label>
+        <locationX>189</locationX>
+        <locationY>630</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Display_Product_Counter</name>
+            <fieldText>&lt;p&gt;{!Record_Counter}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Get_Products</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>Record_Counter</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>
