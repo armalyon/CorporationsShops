@@ -17,8 +17,17 @@ public with sharing class AccountToContactAddressQuerySynchronizer implements Da
     }
 
     public void execute(Database.BatchableContext bc, List<Contact> scope) {
+        List<Id> accIds = new List<Id>();
+        for (Contact c: scope){
+            accIds.add(c.AccountId);
+        }
+        Map<Id, Account> accs =
+                new Map<Id, Account>([
+                        SELECT BillingCity, BillingState, BillingStreet, BillingCountry, BillingPostalCode
+                        FROM Account
+                        WHERE Id IN :accIds]);
         for (Contact contact : scope) {
-            Account account = [SELECT BillingCity, BillingState, BillingStreet, BillingCountry, BillingPostalCode FROM Account WHERE Id = :contact.AccountId];
+            Account account = accs.get(contact.AccountId);
             contact.MailingCity = account.BillingCity;
             contact.MailingCountry = account.BillingCountry;
             contact.MailingPostalCode = account.BillingPostalCode;
