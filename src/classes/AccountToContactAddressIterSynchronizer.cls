@@ -8,7 +8,7 @@ public with sharing class AccountToContactAddressIterSynchronizer implements Dat
                 WHERE Is_Synced__c = FALSE AND AccountId != NULL
         ];
     }
-
+//TODO read about the diff between Iter and QueryLocator
     public void execute(Database.BatchableContext bc, List<Contact> scope) {
         for (Contact contact : scope) {
             Account account = [SELECT BillingCity, BillingState, BillingStreet, BillingCountry, BillingPostalCode FROM Account WHERE Id = :contact.AccountId];
