@@ -16,7 +16,7 @@ public with sharing class ShopTriggerHandler {
         ShopTriggerHandlerHelper.sendEmailToNewDirector(newShops, oldShops);
     }
 
-    public static void handleBEforeDelete(List<Shop__c> shopsToDelete) {
+    public static void handleBeforeDelete(List<Shop__c> shopsToDelete) {
         ShopTriggerHandlerHelper.isShopsCanBeDeleted(shopsToDelete);
     }
 

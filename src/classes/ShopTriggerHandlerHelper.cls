@@ -89,10 +89,9 @@ public with sharing class ShopTriggerHandlerHelper {
 
     public static void isShopsCanBeDeleted(List<Shop__c> shops) {
         for (Shop__c shop : shops) {
-            if (shop.Is_Growing__c = true) {
+            if (shop.Is_Growing__c) {
                 shop.addError('Shop marked "Is Growing" cannot be deleted from the system!');
             }
         }
     }
-
 }
