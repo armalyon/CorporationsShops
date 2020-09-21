@@ -200,6 +200,14 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Is_Growing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Growing</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Monthly_Revenue__c</fullName>
         <externalId>false</externalId>
         <label>Monthly Revenue</label>
