@@ -10,7 +10,7 @@ trigger ShopTrigger on Shop__c (before insert, before update, before delete,
     } else if (Trigger.isUpdate && Trigger.isAfter) {
         ShopTriggerHandler.handleAfterUpdate(Trigger.oldMap,Trigger.newMap);
     } else if (Trigger.isDelete && Trigger.isBefore) {
-        ShopTriggerHandler.handleBEforeDelete(Trigger.old);
+        ShopTriggerHandler.handleBeforeDelete(Trigger.old);
     }
 
 }
