@@ -1,6 +1,6 @@
 
 public with sharing class ContactsFutureUnsyncer {
-    private final static Integer ACCOUNTS_TO_SELECT_LIMIT = 150;
+    public final static Integer ACCOUNTS_TO_SELECT_LIMIT = 150;
 
     /**
         a.	Select 150 Accounts from database.

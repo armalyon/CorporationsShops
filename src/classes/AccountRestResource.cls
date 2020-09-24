@@ -13,7 +13,7 @@ global with sharing class AccountRestResource {
     }
 
     @HttpPost
-    global static ID createNewAccount(Account account) {
+    global static Id createNewAccount(Account account) {
         insert account;
         return account.Id;
     }
