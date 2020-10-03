@@ -1,4 +1,3 @@
-
 trigger ShopTrigger on Shop__c (before insert, before update, before delete,
         after insert, after update, after delete) {
     if (Trigger.isInsert && Trigger.isBefore) {
