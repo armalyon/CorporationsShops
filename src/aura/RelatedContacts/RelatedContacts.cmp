@@ -1,0 +1,52 @@
+<aura:component description="RelatedContacts" implements="force:lightningQuickAction,force:hasRecordId"
+                controller="ContactsRelatedToAccountController">
+    <aura:html tag="style">
+        .slds-modal__container {
+        width : 80% !important;
+        max-width : 80% !important;
+        }
+    </aura:html>
+    <aura:attribute name="relatedContacts" type="Contact[]"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:workspaceAPI aura:id="workspace"/>
+
+
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+        <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+                <div class="slds-truncate" title="First Name">First Name</div>
+            </th>
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Account Name">Last Name</div>
+            </th>
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Close Date">Email</div>
+            </th>
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Stage">Phone</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+    <aura:iteration  items="{!v.relatedContacts}" var="contact">
+        <tr class="slds-hint-parent">
+            <th data-label="First Name" scope="row">
+                <div class="slds-truncate" title="First Name">
+                    <a onclick="{!c.navigateToContact}" id="{!contact.Id}">{!contact.FirstName}</a>
+                </div>
+            </th>
+            <td data-label="Account Name">
+                <div class="slds-truncate" title="Cloudhub">{!contact.LastName}</div>
+            </td>
+            <td data-label="Close Date">
+                <div class="slds-truncate" title="4/14/2015">{!contact.Email}</div>
+            </td>
+            <td data-label="Prospecting">
+                <div class="slds-truncate" title="Prospecting">{!contact.Phone}</div>
+            </td>
+        </tr>    </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>
