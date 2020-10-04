@@ -10,6 +10,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Corporation Shops</label>
     <navType>Standard</navType>
+    <tabs>standard-Account</tabs>
     <tabs>Corporation__c</tabs>
     <tabs>Shop__c</tabs>
     <uiType>Lightning</uiType>

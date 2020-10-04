@@ -1,0 +1,20 @@
+<aura:component description="CountryCard">
+    <aura:attribute name="countryToShow" type="Country"/>
+    <lightning:card variant="Narrow" title="{!v.countryToShow.name }" iconName="standard:address">
+        <p class="slds-p-horizontal_medium">
+            <img src="{!v.countryToShow.flag}"
+                 width="30" height="25"/>
+        </p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small">{!'Capital City: ' + v.countryToShow.capital}</p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small">{!'Population: ' + v.countryToShow.population}</p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small">{!'Subregion: ' + v.countryToShow.subregion}</p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small"> Currency:
+        <aura:iteration items="{!v.countryToShow.currencies}" var="curr">
+        {!curr.code +' '}
+        </aura:iteration>
+
+        </p>
+
+        <hr/>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,7 @@
+<aura:component description="CountrySearchResult">
+    <aura:handler event="c:countriesSearchCompleteEvent" action="{!c.handleSearchCompleteEvent}"/>
+    <aura:attribute name="result" type="Country[]"/>
+    <aura:iteration items="{!v.result}" var="c">
+        <c:CountryCard countryToShow="{!c}"/>
+    </aura:iteration>
+</aura:component>

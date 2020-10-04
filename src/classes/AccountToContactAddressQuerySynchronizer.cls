@@ -28,6 +28,7 @@ public with sharing class AccountToContactAddressQuerySynchronizer implements Da
                         WHERE Id IN :accIds]);
         for (Contact contact : scope) {
             Account account = accs.get(contact.AccountId);
+            account.Updated_By_Contact__c = true;
             contact.MailingCity = account.BillingCity;
             contact.MailingCountry = account.BillingCountry;
             contact.MailingPostalCode = account.BillingPostalCode;

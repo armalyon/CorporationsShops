@@ -1,0 +1,8 @@
+<aura:component description="SearchResultCard" implements="flexipage:availableForAllPageTypes">
+    <lightning:card variant="Narrow" title="Search Result" iconName="standard:timesheet">
+        <hr/>
+        <p class="slds-p-horizontal_small">
+            <c:CountrySearchResult/>
+        </p>
+    </lightning:card>
+</aura:component>

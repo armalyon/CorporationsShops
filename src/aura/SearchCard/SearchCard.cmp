@@ -1,0 +1,7 @@
+<aura:component description="SearchCard" implements="flexipage:availableForAllPageTypes">
+    <lightning:card variant="Narrow" title="Countries search" iconName="utility:search">
+        <p class="slds-p-horizontal_small">
+            <c:CountrySearch/>
+        </p>
+    </lightning:card>
+</aura:component>
