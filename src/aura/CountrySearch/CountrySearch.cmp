@@ -1,0 +1,13 @@
+<aura:component description="CountrySearch" controller="CountriesAPIController">
+<!--
+    <aura:attribute name="searchResults" type="Country[]"/>
+-->
+    <aura:registerEvent name="countriesSearchCompleteEvent" type="c:countriesSearchCompleteEvent"/>
+    <lightning:select aura:id="searchBySelector" name="selectItem" label="Search Country By: ">
+        <option value="Name">Country Name</option>
+        <option value="Currency">Currency</option>
+        <option value="Capital">Capital City</option>
+    </lightning:select>
+    <lightning:input aura:id="SearchInput" label="Keyword" type="text" name="Search keyword" required="true" value="Germany"/>
+    <button class="slds-button slds-button_brand" onclick="{!c.searchOnClick}">Search</button>
+</aura:component>

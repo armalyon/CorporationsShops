@@ -6,7 +6,8 @@
         });
         navEvent.fire();
     },
-    initializeComponentData: function (action, component){
+    initializeComponentData: function (component){
+        let action = component.get("c.getContactsByAccount");
         action.setParams({
             accId: component.get("v.recordId")
         });
