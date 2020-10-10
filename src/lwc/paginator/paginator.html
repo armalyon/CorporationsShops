@@ -1,0 +1,38 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button label="First Page" icon-name="utility:chevronleft"
+                              onclick={FirstPageHandler}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item>
+            <lightning-button label="Previous" icon-name="utility:chevronleft"
+                              onclick={previousHandler}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item>
+            <select class="slds-select slds-text-color_success" name="optionSelect" onchange={changeOptionHandler}>
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="10">10</option>
+            </select>
+        </lightning-layout-item>
+
+        <lightning-layout-item flexibility="grow"></lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right"
+                              onclick={nextHandler}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Last Page" icon-name="utility:chevronright" icon-position="right"
+                              onclick={LastPageHandler}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <div class="slds-box slds-box_x-small" style="width: 130px">
+        <p>Total Pages: {totalPages}</p>
+    </div>
+            <lightning-input label="Switch to page" class="custom_text_field"></lightning-input>
+
+            <lightning-button label="Switch" class="custom_text_field" onclick={handleSwitchToPage}></lightning-button>
+</template>
