@@ -1,0 +1,20 @@
+<template>
+    <template if:true={results}>
+        <lightning-card variant="Narrow" title="Search Results" icon-name="standard:timesheet">
+            <hr/>
+            <p class="slds-p-horizontal_small">
+                <template for:each={results} for:item="country">
+                    <c-country-l-w-c-card
+                            key={country.name}
+                            name={country.name}
+                            flag={country.flag}
+                            capital={country.capital}
+                            subregion={country.subregion}
+                            currencies={country.currencies}
+                            population={country.population}>
+                    </c-country-l-w-c-card>
+                </template>
+            </p>
+        </lightning-card>
+    </template>
+</template>

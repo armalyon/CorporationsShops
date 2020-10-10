@@ -1,0 +1,18 @@
+<template>
+    <lightning-card variant="Narrow" title={name} icon-name="standard:address">
+        <p class="slds-p-horizontal_medium">
+            <img src={flag} class="flag_image"/>
+        </p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small">Capital City: {capital}</p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small">Population: {population}</p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small">Subregion: {subregion}</p>
+        <p class="slds-p-horizontal_medium slds-text-heading_small">
+            <span class="inline">Currency:&nbsp;</span>
+            <template for:each={currencies} for:item="curr">
+                <div class="inline" key={curr.code}>{curr.code}&nbsp;</div>
+            </template>
+        </p>
+        <hr/>
+    </lightning-card>
+
+</template>
