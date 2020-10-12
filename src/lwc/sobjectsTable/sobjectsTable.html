@@ -1,0 +1,15 @@
+<template>
+    <template if:true={objects}>
+        <lightning-card variant="Narrow" title="Search Results" icon-name="utility:summary">
+            <div class="slds-m-around_medium">
+                <lightning-datatable
+                        key-field="Id"
+                        data={objects}
+                        columns={columns}
+                        onrowaction={handleRowAction}
+                >
+                </lightning-datatable>
+            </div>
+        </lightning-card>
+    </template>
+</template>
