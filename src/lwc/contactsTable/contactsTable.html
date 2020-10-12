@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Available Contacts" icon-name="standard:contact_list">
+        <div class="slds-m-around_medium">
+            <template if:true={contacts}>
+                <lightning-datatable
+                        key-field="Id"
+                        data={contacts}
+                        columns={columns}>
+                </lightning-datatable>
+            </template>
+            <br/>
+            <c-paginator
+                    onfirstpage={firstPageHandler}
+                    onlastpage={lastPageHandler}
+                    onnext={nextPageHandler}
+                    onprevious={previousPageHandler}
+                    onselectedoption={optionSelectedHandler}
+                    onswitchtopage={switchToPageHandler}
+            >
+            </c-paginator>
+        </div>
+
+    </lightning-card>
+
+</template>

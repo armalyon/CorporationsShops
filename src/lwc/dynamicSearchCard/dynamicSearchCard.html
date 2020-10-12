@@ -1,0 +1,26 @@
+<template>
+    <lightning-card variant="Narrow" title="Dynamic Search" icon-name="utility:search">
+        <hr/>
+        <div class="slds-m-left_medium slds-m-right_medium">
+            <p>Select Object to Search:</p>
+            <select class="slds-select input-half-width" onchange={handleSelectChange}>
+                <option value="Account">Account</option>
+                <option value="Contact">Contact</option>
+                <option value="Lead">Lead</option>
+                <option value="Opportunity">Opportunity</option>
+            </select>
+
+            <div class="slds-m-top_small">
+                <lightning-input type="text"
+                                 label="Enter Object Name:"
+                                 class="input-half-width slds-m-top_xxx-small"
+                                 onchange={handleInputChange}
+                ></lightning-input>
+            </div>
+
+        </div>
+    </lightning-card>
+    <c-sobjects-table objects={searchResults} object-api-name={sobjectType}>
+
+    </c-sobjects-table>
+</template>
